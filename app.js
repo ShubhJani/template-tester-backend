@@ -5,7 +5,20 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv/config');
 
-app.use(cors());
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+};
+
+app.use(cors(corsOpts));
 app.use(bodyParser.json());
 
 // Import Routes
